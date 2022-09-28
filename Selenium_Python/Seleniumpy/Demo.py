@@ -1,4 +1,3 @@
-
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager #---- It is imported for automatic download of driver 
 from selenium.webdriver.chrome.service import Service #---- It is imported for automatic download of driver 
@@ -21,8 +20,9 @@ options.add_argument("--disable-blink-features=AutomationControlled")
 
 
 driver = webdriver.Chrome(service=driver_service, options=options) 
+#driver.set_window_position(1320, 0)
 
-driver.set_window_position(950, 0)
+
 
 driver.get("https://web.skype.com/")
 
@@ -36,9 +36,11 @@ driver.find_element(By.XPATH, '//*[@id="idSIButton9"]').click()
 time.sleep(2)
 driver.find_element(By.ID, 'idSIButton9').click()
 
-dr=WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.LINK_TEXT, 'Abhishek Mehta')))
+driver.implicitly_wait(8)
+driver.find_element(By.XPATH, "//div[@data-text-as-pseudo-element='Abhishek Mehta']").click()
+driver.find_element(By.XPATH, "//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']").click()
+driver.find_element(By.XPATH, "//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']").send_keys("Hello")
+driver.find_element(By.XPATH, "//button[@title='Send message']").click()
 
-dr.click()
-
-
-
+# dr=WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.LINK_TEXT, 'Abhishek Mehta')))
+ #dr.click()
