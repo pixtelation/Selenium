@@ -1,7 +1,7 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager #---- It is imported for automatic download of driver 
 from selenium.webdriver.chrome.service import Service #---- It is imported for automatic download of driver 
-from selenium.webdriver.chrome.options import Options 
+from selenium.webdriver.chrome.options import Options  #------ Options are imported to use it from atumaticallly closing driver 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
